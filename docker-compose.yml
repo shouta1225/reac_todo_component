@@ -3,10 +3,10 @@ services:
   react-app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     volumes:
       - ./reactApp:/usr/src/app # ローカルをコンテナ内にマウント
-    command: sh -c "cd react-todo && yarn start"
+    command: sh -c "cd react-todo && yarn install && yarn start"
     ports:
       - "3000:3000"
-    stdin_open: true 
+      - "5001:5000"
